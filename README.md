@@ -7,4 +7,4 @@ Criar .jar : mvn package
 
 Criar relatórios : mvn site
 
-Sonar : https://sonarqube.com/dashboard/index/br.inf.ufg:Calcular
+Sonar : https://sonarqube.com/dashboard/index/br.inf.ufg:qp
