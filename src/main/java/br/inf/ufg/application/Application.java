@@ -9,13 +9,14 @@ import com.github.kyriosdata.parser.Lexer;
 import com.github.kyriosdata.parser.Parser;
 import com.github.kyriosdata.parser.Token;
 
+import br.inf.ufg.read.ReadFile;
 import br.inf.ufg.read.ReadFileLocal;
 import br.inf.ufg.read.ReadFileNet;
 
 public class Application {
     static ArrayList<String> operacoes = new ArrayList<>();
-    static ReadFileLocal readFile;
-    static ReadFileNet readFileNet;
+    static ReadFile readFile;
+    
     public static void lerArquivoLocal(final String path) throws IOException {
         readFile = new ReadFileLocal(path);
         operacoes = readFile.read();
@@ -27,8 +28,8 @@ public class Application {
 
     public static void lerArquivoNet(final String path) throws IOException {
        
-        readFileNet = new ReadFileNet(path);
-        operacoes = readFileNet.read();
+        readFile = new ReadFileNet(path);
+        operacoes = readFile.read();
         for (int i = 0; i < operacoes.size(); i++) {
            executa(operacoes.get(i));    
         }
