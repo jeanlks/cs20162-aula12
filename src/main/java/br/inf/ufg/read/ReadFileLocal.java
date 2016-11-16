@@ -8,7 +8,7 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.ArrayList;
 
-public class ReadFileLocal implements ReadFile {
+public class ReadFileLocal implements ReadFileInterface {
     String separator = ";";
     ArrayList<String> textData = new ArrayList<String>();
     private String path;

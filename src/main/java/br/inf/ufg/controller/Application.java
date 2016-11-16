@@ -1,4 +1,4 @@
-package br.inf.ufg.application;
+package br.inf.ufg.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -10,14 +10,14 @@ import com.github.kyriosdata.parser.Parser;
 import com.github.kyriosdata.parser.Token;
 
 import br.inf.ufg.model.Retorno;
-import br.inf.ufg.read.ReadFile;
+import br.inf.ufg.read.ReadFileInterface;
 import br.inf.ufg.read.ReadFileLocal;
 import br.inf.ufg.read.ReadFileNet;
 import br.inf.ufg.retorno.RetornoJson;
 
 public class Application {
     static ArrayList<String> operacoes = new ArrayList<>();
-    static ReadFile readFile;
+    static ReadFileInterface readFile;
     
     static Retorno retorno = new Retorno();
     public static void lerArquivoLocal(final String path) throws IOException {

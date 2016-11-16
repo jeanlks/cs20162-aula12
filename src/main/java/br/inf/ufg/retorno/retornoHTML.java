@@ -2,7 +2,7 @@ package br.inf.ufg.retorno;
 
 import br.inf.ufg.model.Retorno;
 
-public class retornoHTML implements TipoRetorno {
+public class retornoHTML implements RetornoInterface {
 
     @Override
     public void retorno(Retorno retorno) {

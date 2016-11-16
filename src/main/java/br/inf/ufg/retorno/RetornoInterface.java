@@ -4,6 +4,6 @@ import java.util.Map;
 
 import br.inf.ufg.model.Retorno;
 
-public interface TipoRetorno {
+public interface RetornoInterface {
    public void retorno(Retorno retorno);
 }
