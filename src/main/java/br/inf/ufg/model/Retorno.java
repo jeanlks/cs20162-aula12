@@ -6,9 +6,9 @@ import java.util.Map;
 public class Retorno {
     private Map<String, Integer> mapRetorno = new HashMap<String, Integer>();
 
-    public Retorno(Map<String, Integer> mapRetorno) {
+    public Retorno() {
         super();
-        this.mapRetorno = mapRetorno;
+       
     }
     
     

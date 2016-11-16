@@ -9,21 +9,25 @@ import com.github.kyriosdata.parser.Lexer;
 import com.github.kyriosdata.parser.Parser;
 import com.github.kyriosdata.parser.Token;
 
+import br.inf.ufg.model.Retorno;
 import br.inf.ufg.read.ReadFile;
 import br.inf.ufg.read.ReadFileLocal;
 import br.inf.ufg.read.ReadFileNet;
+import br.inf.ufg.retorno.RetornoJson;
 
 public class Application {
     static ArrayList<String> operacoes = new ArrayList<>();
     static ReadFile readFile;
     
+    static Retorno retorno = new Retorno();
     public static void lerArquivoLocal(final String path) throws IOException {
         readFile = new ReadFileLocal(path);
         operacoes = readFile.read();
         for (int i = 0; i < operacoes.size(); i++) {
             executa(operacoes.get(i));    
         }
-        
+        RetornoJson json = new RetornoJson();
+        json.retorno(retorno);
     }
 
     public static void lerArquivoNet(final String path) throws IOException {
@@ -33,6 +37,8 @@ public class Application {
         for (int i = 0; i < operacoes.size(); i++) {
            executa(operacoes.get(i));    
         }
+        RetornoJson json = new RetornoJson();
+        json.retorno(retorno);
     }
 
     /**
@@ -60,10 +66,10 @@ public class Application {
     public final static void executa(final String expr) {
        try {
            float valor = calculaValor(expr);
-           System.out.println(0);
+           retorno.addRetorno(expr, 0);;
            
        } catch (IllegalArgumentException ex) {
-           System.out.println(1);
+           retorno.addRetorno(expr, 1);;
            
        }
     }
