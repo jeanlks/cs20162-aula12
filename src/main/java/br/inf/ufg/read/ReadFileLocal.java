@@ -1,30 +1,28 @@
 package br.inf.ufg.read;
 
 import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.ArrayList;
 
-public class ReadFileNet implements ReadFile{
-
+public class ReadFileLocal implements ReadFile {
     String separator = ";";
     ArrayList<String> textData = new ArrayList<String>();
-    private String HTTP_ADDRESS;
+    private String path;
 
-    public ReadFileNet(String file_path) {
-        HTTP_ADDRESS = file_path;
+    public ReadFileLocal(String file_path) {
+        path = file_path;
 
     }
 
     @Override
     public ArrayList<String> read() throws IOException {
-        URL url = new URL(HTTP_ADDRESS);
-
-        BufferedReader textReader = new BufferedReader(new InputStreamReader(url.openStream()));
+        FileReader fr = new FileReader(path);
+        BufferedReader textReader = new BufferedReader(fr);
         String line;
-        
         while ((line = textReader.readLine()) != null) {
             String[] output = line.split(separator);
             for (int i = 0; i < output.length; i++) {
@@ -33,7 +31,7 @@ public class ReadFileNet implements ReadFile{
         }
 
         textReader.close();
-        return textData;   
-      
-}
+        return textData;
+
+    }
 }
