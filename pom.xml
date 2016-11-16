@@ -83,6 +83,8 @@
     </dependencies>
 
     <build>
+    
+    <finalName>qp</finalName>
         <plugins>
 
             <plugin>
@@ -125,7 +127,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>jars/</classpathPrefix>
-                            <mainClass>br.inf.ufg.Calcula</mainClass>
+                            <mainClass>br.inf.ufg.Application</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
