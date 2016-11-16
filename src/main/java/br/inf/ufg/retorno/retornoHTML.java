@@ -1,6 +1,6 @@
 package br.inf.ufg.retorno;
 
-public class retornoHTML implements Retorno {
+public class retornoHTML implements TipoRetorno {
 
     @Override
     public void retorno() {

@@ -1,5 +1,5 @@
 package br.inf.ufg.retorno;
 
-public interface Retorno {
+public interface TipoRetorno {
    public void retorno();
 }

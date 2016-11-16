@@ -60,10 +60,10 @@ public class Application {
     public final static void executa(final String expr) {
        try {
            float valor = calculaValor(expr);
-           System.out.println(valor);
+           System.out.println(0);
            
        } catch (IllegalArgumentException ex) {
-           System.out.println(ex.getMessage());
+           System.out.println(1);
            
        }
     }

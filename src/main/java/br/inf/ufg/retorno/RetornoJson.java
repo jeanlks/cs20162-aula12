@@ -1,10 +1,10 @@
 package br.inf.ufg.retorno;
 
-public class RetornoJson implements Retorno {
+public class RetornoJson implements TipoRetorno {
 
     @Override
     public void retorno() {
-        // TODO Auto-generated method stub
+        //Gson gson = new Gson();
         
     }
 
