@@ -2,6 +2,12 @@ package br.inf.ufg.application;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
+
+import com.github.kyriosdata.parser.Expressao;
+import com.github.kyriosdata.parser.Lexer;
+import com.github.kyriosdata.parser.Parser;
+import com.github.kyriosdata.parser.Token;
 
 import br.inf.ufg.read.ReadFileLocal;
 import br.inf.ufg.read.ReadFileNet;
@@ -14,7 +20,7 @@ public class Application {
         readFile = new ReadFileLocal(path);
         operacoes = readFile.read();
         for (int i = 0; i < operacoes.size(); i++) {
-            System.out.println(operacoes.get(i));    
+            executa(operacoes.get(i));    
         }
         
     }
@@ -24,10 +30,43 @@ public class Application {
         readFileNet = new ReadFileNet(path);
         operacoes = readFileNet.read();
         for (int i = 0; i < operacoes.size(); i++) {
-            System.out.println(operacoes.get(i));    
+           executa(operacoes.get(i));    
         }
     }
 
+    /**
+     * @param expr expressao de calculo
+     * @return valor da expressao
+     */
+     public final static float calculaValor(final String expr) {
+        Expressao expressao = exprPara(expr);
+        return expressao.valor();
+     }
+    /**
+     * @param expressao expressao para calculo
+     * @return expressao
+     */
+     private static Expressao exprPara(final String expressao) {
+        List<Token> tokens = new Lexer(expressao).tokenize();
+        Parser parser = new Parser(tokens);
+        return parser.expressao();
+     }
+
+     /**
+     * @param expr
+     * expressao a ser executada
+     */
+    public final static void executa(final String expr) {
+       try {
+           float valor = calculaValor(expr);
+           System.out.println(valor);
+           
+       } catch (IllegalArgumentException ex) {
+           System.out.println(ex.getMessage());
+           
+       }
+    }
+    
     public static void main(String[] args) throws IOException {
         if (args.length > 0) {
             String path = (args[0]);
