@@ -32,6 +32,7 @@ public class ControllerExecuta {
          }
     }
     public void calcula(final String expr,final String variaveis,final String resultadoEsperado) {
+       float precisao = (float) 0.00000001;
         this.resultadoEsperado = Float.valueOf(resultadoEsperado);
         if (variaveis.length() != 0) {
             this.variaveis = variaveis.split(separador);
@@ -44,7 +45,7 @@ public class ControllerExecuta {
         List<Token> tokens = new Lexer(expr).tokenize();
         Parser parser = new Parser(tokens);
         float resultado = parser.expressao().valor(ctx);
-        if (resultado != this.resultadoEsperado) {
+        if (Math.abs(resultado - this.resultadoEsperado)> precisao) {
             retorno.addRetorno(expr, resultado);
             RetornoJson json = new RetornoJson();
             json.retorno(retorno);
