@@ -25,13 +25,14 @@ public class ControllerExecuta {
     String[] valores;
     Float resultadoEsperado;
 
-    public void executa(ArrayList<String[]> resultado){
+    public Retorno executa(ArrayList<String[]> resultado){
         for (int i = 0; i < resultado.size(); i++) {
             calcula(resultado.get(i)[0], resultado.get(i)[1], resultado.get(i)[2]);
           
          }
+        return retorno;
     }
-    public void calcula(final String expr,final String variaveis,final String resultadoEsperado) {
+    public Retorno calcula(final String expr,final String variaveis,final String resultadoEsperado) {
        float precisao = (float) 0.00000001;
         this.resultadoEsperado = Float.valueOf(resultadoEsperado);
         if (variaveis.length() != 0) {
@@ -47,12 +48,9 @@ public class ControllerExecuta {
         float resultado = parser.expressao().valor(ctx);
         if (Math.abs(resultado - this.resultadoEsperado)> precisao) {
             retorno.addRetorno(expr, resultado);
-            RetornoJson json = new RetornoJson();
-            json.retorno(retorno);
+            return retorno;
         }
+        return null;
     }
 
-    public void calcula() {
-
-    }
 }

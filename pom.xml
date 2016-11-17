@@ -135,7 +135,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>jars/</classpathPrefix>
-                            <mainClass>br.inf.ufg.controller.Application</mainClass>
+                            <mainClass>br.inf.ufg.view.Application</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
