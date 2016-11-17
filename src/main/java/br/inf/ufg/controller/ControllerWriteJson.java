@@ -20,10 +20,9 @@ public class ControllerWriteJson implements WriteInterface {
     public void write(Retorno retorno) {
         Gson gson = new Gson();
         String json = gson.toJson(retorno.getMapRetorno());
-        System.out.println(json);
         
         try{
-            PrintWriter writer = new PrintWriter("resultadoJson.txt", "UTF-8");
+            PrintWriter writer = new PrintWriter("resultadoJson.json", "UTF-8");
             writer.println(json);
             writer.close();
         } catch (Exception e) {

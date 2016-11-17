@@ -22,20 +22,34 @@ public class ControllerWriteHTML implements WriteInterface {
         map = retorno.getMapRetorno();
         try {
             PrintWriter writer = new PrintWriter("resultado.html", "UTF-8");
-            writer.println("<!DOCTYPE html>" + "<html>" + "<head>" + "<style>" + "table {"
-                    + "font-family: arial, sans-serif;" + "border-collapse: collapse;" + "width: 100%;}" + "td, th {"
-                    + " border: 1px solid #dddddd;" + "text-align: left;" + "padding: 8px;}" + "tr:nth-child(even) {"
-                    + "background-color: #dddddd;}" + " </style>" + "</head>" + "<body>" + "<table>" + "<tr>"
-                    + "<th>Expressao</th>" + "<th>Resultado Esperado</th>" + "</tr>" + "<tr>");
+            writer.println("<!DOCTYPE html>" + "<html>" + 
+                    "<head>" + "<style>" + "table {"+
+                     "font-family: arial, sans-serif;" + 
+                    "border-collapse: collapse;" + "width: 100%;}" + 
+                     "td, th {"+
+                    " border: 1px solid #dddddd;" + 
+                    "text-align: left;" + "padding: 8px;}" + 
+                    "tr:nth-child(even) {"+ 
+                    "background-color: #dddddd;}" + 
+                    " </style>" + 
+                    "</head>" + 
+                    "<body>" + 
+                    "<table>" + 
+                    "<tr>"+
+                    "<th>Expressao</th>" + 
+                    "<th>Resultado Esperado</th>" + 
+                    "</tr>" + 
+                    "<tr>");
 
             for (Map.Entry<String, Float> entry : map.entrySet()) {
                 String key = entry.getKey();
                 Float value = entry.getValue();
                 writer.println("<td>" + key.toString() + "</td>");
                 writer.println("<td>" + value.toString() + "</td>");
+                writer.println("</tr>");
             }
 
-            writer.println("</tr>" + "</table>" + "</body>" + "</html>");
+            writer.println("</table>" + "</body>" + "</html>");
 
             writer.close();
         } catch (Exception e) {

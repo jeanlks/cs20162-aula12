@@ -34,13 +34,21 @@ public class Application {
             resultado = controllerRead.lerArquivo(path);
             retorno = controllerExecuta.executa(resultado);
             
+            
         }
-       
-            controllerWrite = new ControllerWriteHTML();
-            controllerWrite.write(retorno);
-  
-             controllerWrite = new ControllerWriteJson();
-            controllerWrite.write(retorno);
+          if(args.length==1){
+              controllerWrite = new ControllerWriteJson();
+              controllerWrite.write(retorno);
+              System.out.println("Gerado Arquivo Json");
+         
+          } else if(args.length>1){
+              if(args[1].equals("-h")){
+                  controllerWrite = new ControllerWriteHTML();
+                  controllerWrite.write(retorno);
+                  System.out.println("Gerado Arquivo HTML");
+              }
+          }
+             
         
     }
 }
