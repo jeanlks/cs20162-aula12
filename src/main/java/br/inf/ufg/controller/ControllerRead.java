@@ -10,8 +10,6 @@ import java.util.ArrayList;
 
 
 import br.inf.ufg.read.ReadFileInterface;
-import br.inf.ufg.read.ReadFileLocal;
-import br.inf.ufg.read.ReadFileNet;
 
 public class ControllerRead {
     ReadFileInterface readFile;
@@ -27,14 +25,14 @@ public class ControllerRead {
 
     public ArrayList<String[]> lerArquivoLocal(final String path) throws IOException {
 
-        readFile = new ReadFileLocal(path);
+        readFile = new ControllerReadFileLocal(path);
         resultado = readFile.read();
         return resultado;
     }
 
     public ArrayList<String[]> lerArquivoNet(final String path) throws IOException {
 
-        readFile = new ReadFileNet(path);
+        readFile = new ControllerReadFileNet(path);
         resultado = readFile.read();
         return resultado;
     }

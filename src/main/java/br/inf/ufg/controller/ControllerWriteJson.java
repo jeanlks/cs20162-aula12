@@ -3,13 +3,14 @@
  * Creative Commons Attribution 4.0 International License.
  */
 
-package br.inf.ufg.retorno;
+package br.inf.ufg.controller;
 
 import com.google.gson.Gson;
 
 import br.inf.ufg.model.Retorno;
+import br.inf.ufg.write.WriteInterface;
 
-public class RetornoJson implements RetornoInterface {
+public class ControllerWriteJson implements WriteInterface {
 
     @Override
     public void retorno(Retorno retorno) {

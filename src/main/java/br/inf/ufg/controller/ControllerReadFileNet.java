@@ -3,7 +3,7 @@
  * Creative Commons Attribution 4.0 International License.
  */
 
-package br.inf.ufg.read;
+package br.inf.ufg.controller;
 
 import java.io.BufferedReader;
 
@@ -12,13 +12,15 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.ArrayList;
 
-public class ReadFileNet implements ReadFileInterface{
+import br.inf.ufg.read.ReadFileInterface;
+
+public class ControllerReadFileNet implements ReadFileInterface{
 
     String separator = ";";
     ArrayList<String[]> textData = new ArrayList<String[]>();
     private String httpAddress;
 
-    public ReadFileNet(String file_path) {
+    public ControllerReadFileNet(String file_path) {
         httpAddress = file_path;
 
     }

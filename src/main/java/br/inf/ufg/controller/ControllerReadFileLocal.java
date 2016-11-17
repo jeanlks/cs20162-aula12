@@ -3,7 +3,7 @@
  * Creative Commons Attribution 4.0 International License.
  */
 
-package br.inf.ufg.read;
+package br.inf.ufg.controller;
 
 import java.io.BufferedReader;
 
@@ -12,15 +12,17 @@ import java.io.IOException;
 
 import java.util.ArrayList;
 
+import br.inf.ufg.read.ReadFileInterface;
+
 /*
  * Classe para leitura de arquivos locais.
  */
-public class ReadFileLocal implements ReadFileInterface {
+public class ControllerReadFileLocal implements ReadFileInterface {
     String separator = ";";
     ArrayList<String[]> textData = new ArrayList<String[]>();
     private String path;
 
-    public ReadFileLocal(String file_path) {
+    public ControllerReadFileLocal(String file_path) {
         path = file_path;
 
     }

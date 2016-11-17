@@ -3,11 +3,11 @@
  * Creative Commons Attribution 4.0 International License.
  */
 
-package br.inf.ufg.retorno;
+package br.inf.ufg.write;
 
 
 import br.inf.ufg.model.Retorno;
 
-public interface RetornoInterface {
+public interface WriteInterface {
    public void retorno(Retorno retorno);
 }

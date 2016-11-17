@@ -10,8 +10,8 @@ import java.util.ArrayList;
 
 import br.inf.ufg.controller.ControllerExecuta;
 import br.inf.ufg.controller.ControllerRead;
+import br.inf.ufg.controller.ControllerWriteJson;
 import br.inf.ufg.model.Retorno;
-import br.inf.ufg.retorno.RetornoJson;
 
 
 /*
@@ -28,7 +28,7 @@ public class Application {
             String path = (args[0]); 
             resultado = controllerRead.lerArquivo(path);
             Retorno retorno = controllerExecuta.executa(resultado);
-            RetornoJson json = new RetornoJson();
+            ControllerWriteJson json = new ControllerWriteJson();
             json.retorno(retorno);
         }
         

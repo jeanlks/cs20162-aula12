@@ -15,7 +15,6 @@ import com.github.kyriosdata.parser.Parser;
 import com.github.kyriosdata.parser.Token;
 
 import br.inf.ufg.model.Retorno;
-import br.inf.ufg.retorno.RetornoJson;
 
 public class ControllerExecuta {
     Retorno retorno = new Retorno();

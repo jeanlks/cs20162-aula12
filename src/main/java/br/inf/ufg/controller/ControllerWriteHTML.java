@@ -3,11 +3,12 @@
  * Creative Commons Attribution 4.0 International License.
  */
 
-package br.inf.ufg.retorno;
+package br.inf.ufg.controller;
 
 import br.inf.ufg.model.Retorno;
+import br.inf.ufg.write.WriteInterface;
 
-public class retornoHTML implements RetornoInterface {
+public class ControllerWriteHTML implements WriteInterface {
 
     @Override
     public void retorno(Retorno retorno) {
