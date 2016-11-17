@@ -6,8 +6,10 @@
 package br.inf.ufg.write;
 
 
+import java.util.ArrayList;
+
 import br.inf.ufg.model.Retorno;
 
 public interface WriteInterface {
-   public void write(Retorno retorno);
+   public void write(ArrayList<Retorno> listaRetorno);
 }

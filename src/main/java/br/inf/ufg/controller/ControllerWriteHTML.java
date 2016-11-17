@@ -6,6 +6,7 @@
 package br.inf.ufg.controller;
 
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -15,11 +16,10 @@ import br.inf.ufg.write.WriteInterface;
 import edu.emory.mathcs.backport.java.util.TreeMap.Entry;
 
 public class ControllerWriteHTML implements WriteInterface {
-    private Map<String, Float> map = new HashMap<String, Float>();
+    
 
     @Override
-    public void write(Retorno retorno) {
-        map = retorno.getMapRetorno();
+    public void write(ArrayList<Retorno> listaRetorno) {
         try {
             PrintWriter writer = new PrintWriter("resultado.html", "UTF-8");
             writer.println("<!DOCTYPE html>" + "<html>" + 
@@ -37,19 +37,22 @@ public class ControllerWriteHTML implements WriteInterface {
                     "<table>" + 
                     "<tr>"+
                     "<th>Expressao</th>" + 
-                    "<th>Resultado Esperado</th>" + 
+                    "<th>Valor Resultado</th>" + 
+                    "<th>Valor Esperado</th>" + 
+                    "<th>Codigo Erro</th>" + 
                     "</tr>" + 
                     "<tr>");
 
-            for (Map.Entry<String, Float> entry : map.entrySet()) {
-                String key = entry.getKey();
-                Float value = entry.getValue();
-                writer.println("<td>" + key.toString() + "</td>");
-                writer.println("<td>" + value.toString() + "</td>");
+          
+            for (int i=0;i<listaRetorno.size();i++) {
+                writer.println("<td>" + listaRetorno.get(i).getExpr() + "</td>");
+                writer.println("<td>" +  listaRetorno.get(i).getValorResultado() + "</td>");
+                writer.println("<td>" +  listaRetorno.get(i).getValorEsperado() + "</td>");
+                writer.println("<td>" +  listaRetorno.get(i).getCodigoErro() + "</td>");
                 writer.println("</tr>");
             }
 
-            writer.println("</table>" + "</body>" + "</html>");
+            writer.println( "</table>" + "</body>" + "</html>");
 
             writer.close();
         } catch (Exception e) {

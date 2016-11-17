@@ -7,7 +7,7 @@ package br.inf.ufg.controller;
 
 import com.google.gson.Gson;
 import java.io.PrintWriter;
-
+import java.util.ArrayList;
 
 import br.inf.ufg.model.Retorno;
 import br.inf.ufg.write.WriteInterface;
@@ -17,9 +17,9 @@ public class ControllerWriteJson implements WriteInterface {
    
     
     @Override
-    public void write(Retorno retorno) {
+    public void write(ArrayList<Retorno> listaRetorno) {
         Gson gson = new Gson();
-        String json = gson.toJson(retorno.getMapRetorno());
+        String json = gson.toJson(listaRetorno);
         
         try{
             PrintWriter writer = new PrintWriter("resultadoJson.json", "UTF-8");
