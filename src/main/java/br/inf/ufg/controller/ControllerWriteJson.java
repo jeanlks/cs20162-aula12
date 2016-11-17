@@ -14,13 +14,7 @@ import br.inf.ufg.write.WriteInterface;
 
 public class ControllerWriteJson implements WriteInterface {
 
-    private String path;
-    
-
-    public ControllerWriteJson(String path) {
-        super();
-        this.path = path;
-    }
+   
     
     @Override
     public void write(Retorno retorno) {
@@ -29,7 +23,7 @@ public class ControllerWriteJson implements WriteInterface {
         System.out.println(json);
         
         try{
-            PrintWriter writer = new PrintWriter("resultado.txt", "UTF-8");
+            PrintWriter writer = new PrintWriter("resultadoJson.txt", "UTF-8");
             writer.println(json);
             writer.close();
         } catch (Exception e) {
