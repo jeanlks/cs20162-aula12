@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Retorno {
-    private Map<String, Integer> mapRetorno = new HashMap<String, Integer>();
+    private Map<String, Float> mapRetorno = new HashMap<String, Float>();
 
     public Retorno() {
         super();
@@ -12,16 +12,16 @@ public class Retorno {
     }
     
     
-    public Map<String, Integer> getMapRetorno() {
+    public Map<String, Float> getMapRetorno() {
         return mapRetorno;
     }
 
-    public void setMapRetorno(Map<String, Integer> mapRetorno) {
+    public void setMapRetorno(Map<String, Float> mapRetorno) {
         this.mapRetorno = mapRetorno;
     }
     
-    public void addRetorno(String operacao, int valorRetorno){
-       this.mapRetorno.put(operacao, valorRetorno);
+    public void addRetorno(String operacao, float resultado){
+       this.mapRetorno.put(operacao, resultado);
     }
    
 

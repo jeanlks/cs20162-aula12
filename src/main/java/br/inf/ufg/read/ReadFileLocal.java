@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class ReadFileLocal implements ReadFileInterface {
     String separator = ";";
-    ArrayList<String> textData = new ArrayList<String>();
+    ArrayList<String[]> textData = new ArrayList<String[]>();
     private String path;
 
     public ReadFileLocal(String file_path) {
@@ -19,15 +19,15 @@ public class ReadFileLocal implements ReadFileInterface {
     }
 
     @Override
-    public ArrayList<String> read() throws IOException {
+    public ArrayList<String[]> read() throws IOException {
         FileReader fr = new FileReader(path);
         BufferedReader textReader = new BufferedReader(fr);
         String line;
         while ((line = textReader.readLine()) != null) {
             String[] output = line.split(separator);
-            for (int i = 0; i < output.length; i++) {
-                textData.add(output[i]);
-            }
+            
+                textData.add(output);
+            
         }
 
         textReader.close();

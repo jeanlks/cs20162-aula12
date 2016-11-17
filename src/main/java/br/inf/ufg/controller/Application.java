@@ -16,75 +16,17 @@ import br.inf.ufg.read.ReadFileNet;
 import br.inf.ufg.retorno.RetornoJson;
 
 public class Application {
-    static ArrayList<String> operacoes = new ArrayList<>();
-    static ReadFileInterface readFile;
-    
-    static Retorno retorno = new Retorno();
-    public static void lerArquivoLocal(final String path) throws IOException {
-        readFile = new ReadFileLocal(path);
-        operacoes = readFile.read();
-        for (int i = 0; i < operacoes.size(); i++) {
-            executa(operacoes.get(i));    
-        }
-        RetornoJson json = new RetornoJson();
-        json.retorno(retorno);
-    }
-
-    public static void lerArquivoNet(final String path) throws IOException {
-       
-        readFile = new ReadFileNet(path);
-        operacoes = readFile.read();
-        for (int i = 0; i < operacoes.size(); i++) {
-           executa(operacoes.get(i));    
-        }
-        RetornoJson json = new RetornoJson();
-        json.retorno(retorno);
-    }
-
-    /**
-     * @param expr expressao de calculo
-     * @return valor da expressao
-     */
-     public final static float calculaValor(final String expr) {
-        Expressao expressao = exprPara(expr);
-        return expressao.valor();
-     }
-    /**
-     * @param expressao expressao para calculo
-     * @return expressao
-     */
-     private static Expressao exprPara(final String expressao) {
-        List<Token> tokens = new Lexer(expressao).tokenize();
-        Parser parser = new Parser(tokens);
-        return parser.expressao();
-     }
-
-     /**
-     * @param expr
-     * expressao a ser executada
-     */
-    public final static void executa(final String expr) {
-       try {
-           float valor = calculaValor(expr);
-           retorno.addRetorno(expr, 0);;
-           
-       } catch (IllegalArgumentException ex) {
-           retorno.addRetorno(expr, 1);;
-           
-       }
-    }
-    
+    static ControllerExecuta controllerExecuta;
+    static ArrayList<String[]> resultado = new ArrayList<String[]>();
     public static void main(String[] args) throws IOException {
+        controllerExecuta = new ControllerExecuta();
+       ControllerRead controllerRead = new ControllerRead();
         if (args.length > 0) {
             String path = (args[0]);
-
-            if (path.contains("http")) {
-                lerArquivoNet(path);
-            } else {
-                lerArquivoLocal(path);
-            }
-
+            
+            resultado = controllerRead.lerArquivo(path);
+            controllerExecuta.executa(resultado);
         }
-
+        
     }
 }

@@ -4,5 +4,5 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public interface ReadFileInterface {
- public ArrayList<String> read() throws IOException;
+ public ArrayList<String[]> read() throws IOException;
 }

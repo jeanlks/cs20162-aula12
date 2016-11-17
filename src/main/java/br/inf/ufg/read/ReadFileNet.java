@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class ReadFileNet implements ReadFileInterface{
 
     String separator = ";";
-    ArrayList<String> textData = new ArrayList<String>();
+    ArrayList<String[]> textData = new ArrayList<String[]>();
     private String HTTP_ADDRESS;
 
     public ReadFileNet(String file_path) {
@@ -19,7 +19,7 @@ public class ReadFileNet implements ReadFileInterface{
     }
 
     @Override
-    public ArrayList<String> read() throws IOException {
+    public ArrayList<String[]> read() throws IOException {
         URL url = new URL(HTTP_ADDRESS);
 
         BufferedReader textReader = new BufferedReader(new InputStreamReader(url.openStream()));
@@ -27,9 +27,9 @@ public class ReadFileNet implements ReadFileInterface{
         
         while ((line = textReader.readLine()) != null) {
             String[] output = line.split(separator);
-            for (int i = 0; i < output.length; i++) {
-                textData.add(output[i]);
-            }
+            
+                textData.add(output);
+            
         }
 
         textReader.close();
