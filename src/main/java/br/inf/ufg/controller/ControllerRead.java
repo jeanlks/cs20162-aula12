@@ -8,7 +8,7 @@ package br.inf.ufg.controller;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import br.inf.ufg.model.Retorno;
+
 import br.inf.ufg.read.ReadFileInterface;
 import br.inf.ufg.read.ReadFileLocal;
 import br.inf.ufg.read.ReadFileNet;

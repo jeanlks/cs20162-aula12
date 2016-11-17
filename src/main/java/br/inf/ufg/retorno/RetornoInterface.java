@@ -5,7 +5,6 @@
 
 package br.inf.ufg.retorno;
 
-import java.util.Map;
 
 import br.inf.ufg.model.Retorno;
 

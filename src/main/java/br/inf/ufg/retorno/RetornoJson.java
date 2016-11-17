@@ -5,8 +5,6 @@
 
 package br.inf.ufg.retorno;
 
-import java.util.Map;
-
 import com.google.gson.Gson;
 
 import br.inf.ufg.model.Retorno;
@@ -21,5 +19,7 @@ public class RetornoJson implements RetornoInterface {
         
        //Escrever em arquivo inves de printar
     }
+
+ 
 
 }

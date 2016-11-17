@@ -7,18 +7,7 @@ package br.inf.ufg.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
-import com.github.kyriosdata.parser.Expressao;
-import com.github.kyriosdata.parser.Lexer;
-import com.github.kyriosdata.parser.Parser;
-import com.github.kyriosdata.parser.Token;
-
-import br.inf.ufg.model.Retorno;
-import br.inf.ufg.read.ReadFileInterface;
-import br.inf.ufg.read.ReadFileLocal;
-import br.inf.ufg.read.ReadFileNet;
-import br.inf.ufg.retorno.RetornoJson;
 
 /*
  * Classe de execução da aplicação.

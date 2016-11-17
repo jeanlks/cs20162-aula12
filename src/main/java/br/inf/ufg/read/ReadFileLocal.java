@@ -1,16 +1,15 @@
 /*
- * Copyright (c) 2016. Jean Lucas Monte Carvalho
+ * Copyright (c) 2016. Jean Lucas Monte Carvvalho
  * Creative Commons Attribution 4.0 International License.
  */
 
 package br.inf.ufg.read;
 
 import java.io.BufferedReader;
-import java.io.FileInputStream;
+
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.URL;
+
 import java.util.ArrayList;
 
 /*
