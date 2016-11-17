@@ -11,7 +11,7 @@ import br.inf.ufg.write.WriteInterface;
 public class ControllerWriteHTML implements WriteInterface {
 
     @Override
-    public void retorno(Retorno retorno) {
+    public void write(Retorno retorno) {
         // TODO Auto-generated method stub
         
     }

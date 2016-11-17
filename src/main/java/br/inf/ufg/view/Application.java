@@ -28,8 +28,8 @@ public class Application {
             String path = (args[0]); 
             resultado = controllerRead.lerArquivo(path);
             Retorno retorno = controllerExecuta.executa(resultado);
-            ControllerWriteJson json = new ControllerWriteJson();
-            json.retorno(retorno);
+            ControllerWriteJson controllerWrite = new ControllerWriteJson(path);
+            controllerWrite.write(retorno);
         }
         
     }

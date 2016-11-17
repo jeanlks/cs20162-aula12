@@ -9,5 +9,5 @@ package br.inf.ufg.write;
 import br.inf.ufg.model.Retorno;
 
 public interface WriteInterface {
-   public void retorno(Retorno retorno);
+   public void write(Retorno retorno);
 }
