@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2016. Jean Lucas Monte Carvalho
+ * Creative Commons Attribution 4.0 International License.
+ */
+
 package br.inf.ufg.controller;
 
 import java.io.IOException;
@@ -15,6 +20,9 @@ import br.inf.ufg.read.ReadFileLocal;
 import br.inf.ufg.read.ReadFileNet;
 import br.inf.ufg.retorno.RetornoJson;
 
+/*
+ * Classe de execução da aplicação.
+ */
 public class Application {
     static ControllerExecuta controllerExecuta;
     static ArrayList<String[]> resultado = new ArrayList<String[]>();
