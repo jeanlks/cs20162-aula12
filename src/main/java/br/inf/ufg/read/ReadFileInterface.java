@@ -6,8 +6,18 @@
 package br.inf.ufg.read;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
+import java.util.ArrayList;
+/**
+ *
+ * Interface para leitura de arquivos.
+ */
 public interface ReadFileInterface {
- public ArrayList<String[]> read() throws IOException;
+/**
+ * @return arrayList com arquivo lido.
+ * @throws IOException caso haja excessao
+ *      ao ler arquivo.
+ * Metodo para ler arquivo.
+ */
+ ArrayList<String[]> read() throws IOException;
 }

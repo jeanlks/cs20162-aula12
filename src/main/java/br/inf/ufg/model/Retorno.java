@@ -5,74 +5,58 @@
 
 package br.inf.ufg.model;
 
-import java.util.HashMap;
-import java.util.Map;
 
+/**
+ * @author Jean
+ * Classe modelo para gravacao dos resultados.
+ */
 public class Retorno {
     private String expr;
     private Float valorResultado;
     private Float valorEsperado;
     private int codigoErro;
 
-    public String getExpr() {
+    public final String getExpr() {
         return expr;
     }
 
-    public void setExpr(String expr) {
+    public final void setExpr(String expr) {
         this.expr = expr;
     }
 
-    public Float getValorResultado() {
+    public final Float getValorResultado() {
         return valorResultado;
     }
 
-    public void setValorResultado(Float valorResultado) {
+    public final void setValorResultado(final Float valorResultado) {
         this.valorResultado = valorResultado;
     }
 
-    public Float getValorEsperado() {
+    public final Float getValorEsperado() {
         return valorEsperado;
     }
 
-    public void setValorEsperado(Float valorEsperado) {
+    public final void setValorEsperado(final Float valorEsperado) {
         this.valorEsperado = valorEsperado;
     }
 
-    public int getCodigoErro() {
+    public final int getCodigoErro() {
         return codigoErro;
     }
 
-    public void setCodigoErro(int codigoErro) {
+    public final void setCodigoErro(final int codigoErro) {
         this.codigoErro = codigoErro;
     }
 
-    public Retorno(String expr, Float valorResultado, Float valorEsperado, int codigoErro) {
+    public Retorno(final String exprParam,
+                   final Float valorResultadoParam,
+                   final Float valorEsperadoParam,
+                   final int codigoErroParam) {
         super();
-        this.expr = expr;
-        this.valorResultado = valorResultado;
-        this.valorEsperado = valorEsperado;
-        this.codigoErro = codigoErro;
+        this.expr = exprParam;
+        this.valorResultado = valorResultadoParam;
+        this.valorEsperado = valorEsperadoParam;
+        this.codigoErro = codigoErroParam;
     }
-
-    // private Map<String, Float> mapRetorno = new HashMap<String, Float>();
-    //
-    // public Retorno() {
-    // super();
-    //
-    // }
-    //
-    //
-    // public Map<String, Float> getMapRetorno() {
-    // return mapRetorno;
-    // }
-    //
-    // public void setMapRetorno(Map<String, Float> mapRetorno) {
-    // this.mapRetorno = mapRetorno;
-    // }
-    //
-    // public void addRetorno(String operacao, float resultado){
-    // this.mapRetorno.put(operacao, resultado);
-    // }
-    //
 
 }

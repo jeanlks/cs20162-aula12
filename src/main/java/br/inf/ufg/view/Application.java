@@ -17,7 +17,7 @@ import br.inf.ufg.model.Retorno;
 import br.inf.ufg.write.WriteInterface;
 
 
-/*
+/**
  * Classe de execução da aplicação.
  */
 public class Application {

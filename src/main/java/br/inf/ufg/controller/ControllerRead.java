@@ -11,27 +11,53 @@ import java.util.ArrayList;
 
 import br.inf.ufg.read.ReadFileInterface;
 
+/**
+ *
+ * @author Jean
+ * Classe controller leitura dos arquivos sejam locais ou
+ * pela internet.
+ */
 public class ControllerRead {
-    ReadFileInterface readFile;
-    ArrayList<String[]> resultado = new ArrayList<String[]>();
-
-    public ArrayList<String[]> lerArquivo(String path) throws IOException {
+    private ReadFileInterface readFile;
+    private ArrayList<String[]> resultado = new ArrayList<String[]>();
+    /**
+     *
+     * @param path local do arquivo.
+     * @return lista de expressoes
+     *          para calculo.
+     * @throws IOException caso haja excessao
+     *                      ao ler arquivo.
+     */
+    public final ArrayList<String[]> lerArquivo(final String path)
+                                        throws IOException {
         if (path.contains("http")) {
           return  lerArquivoNet(path);
         } else {
           return  lerArquivoLocal(path);
         }
     }
-
-    public ArrayList<String[]> lerArquivoLocal(final String path) throws IOException {
-
+   /**
+    * @param path local do arquivo.
+    * @return lista de expressoes
+     *          para calculo.
+    * @throws IOException casa hoja excessao
+    *                     ao ler arquivo.
+    */
+    public final ArrayList<String[]> lerArquivoLocal(final String path)
+                                            throws IOException {
         readFile = new ControllerReadFileLocal(path);
         resultado = readFile.read();
         return resultado;
     }
-
-    public ArrayList<String[]> lerArquivoNet(final String path) throws IOException {
-
+    /**
+     * @param path local do arquivo.
+     * @return lista de expressoes
+      *          para calculo.
+     @throws IOException casa hoja excessao
+     *                     ao ler arquivo.
+     */
+    public final ArrayList<String[]> lerArquivoNet(final String path)
+                                            throws IOException {
         readFile = new ControllerReadFileNet(path);
         resultado = readFile.read();
         return resultado;

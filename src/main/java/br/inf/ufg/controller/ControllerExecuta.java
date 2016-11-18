@@ -16,28 +16,48 @@ import com.github.kyriosdata.parser.Token;
 
 import br.inf.ufg.model.Retorno;
 
+/**
+ *@author Jean
+ * Classe controller para execução dos calculos.
+ */
 public class ControllerExecuta {
-    Retorno retorno;
-    Map<String, Float> ctx = new HashMap<>();
-    String[] variaveis;
-    String separador = ",";
-    String[] valores;
-    Float resultadoEsperado;
+   private Retorno retorno;
+   private  Map<String, Float> ctx = new HashMap<>();
+   private String[] variaveis;
+   private String separador = ",";
+   private String[] valores;
+   private Float resultadoEsperado;
+   private final float precisao = (float) 0.00000001;
     ControllerRetorno controllerRetorno = new ControllerRetorno();;
-
-    public ControllerRetorno executa(ArrayList<String[]> resultado) {
+    /**
+     * @param resultado lista de expressoes
+     *                  para calculo
+     * @return retorna uma lista de solucoes
+     *         para as expressoes e
+     *         impressao posterior.
+     */
+    public ControllerRetorno executa(final ArrayList<String[]> resultado) {
         for (int i = 0; i < resultado.size(); i++) {
-            calcula(resultado.get(i)[0], resultado.get(i)[1], Float.valueOf(resultado.get(i)[2]));
+            calcula(resultado.get(i)[0], resultado.get(i)[1],
+                            Float.valueOf(resultado.get(i)[2]));
 
         }
         return controllerRetorno;
     }
-
-    public ArrayList<Retorno> calcula(final String expr, final String variaveis, final Float resultadoEsperado) {
-        float precisao = (float) 0.00000001;
-        this.resultadoEsperado = resultadoEsperado;
-        if (variaveis.length() != 0) {
-            this.variaveis = variaveis.split(separador);
+    
+    /**
+     * @param expr expressão para cálculo.
+     * @param variaveisAtbr variaveis de atribuicao.
+     * @param resultadoEsperadoExpr resultado esperado pelo teste.
+     * @return retorna lista de expressoes calculadas.
+     */
+    public ArrayList<Retorno> calcula(final String expr,
+                                      final String variaveisAtbr,
+                                      final Float resultadoEsperadoExpr) {
+  
+        this.resultadoEsperado = resultadoEsperadoExpr;
+        if (variaveisAtbr.length() != 0) {
+            this.variaveis = variaveisAtbr.split(separador);
             for (int i = 0; i < this.variaveis.length; i++) {
                 valores = this.variaveis[i].split("=");
                 ctx.put(valores[0], Float.valueOf(valores[1]));
@@ -47,14 +67,19 @@ public class ControllerExecuta {
         List<Token> tokens = new Lexer(expr).tokenize();
         Parser parser = new Parser(tokens);
         float resultado = parser.expressao().valor(ctx);
-        
         if (Math.abs(resultado - this.resultadoEsperado) > precisao) {
-            retorno = new Retorno(expr, resultado, resultadoEsperado, 1);
+            retorno = new Retorno(expr,
+                                  resultado,
+                                  resultadoEsperadoExpr,
+                                  1);
             controllerRetorno.add(retorno);
             return controllerRetorno.getListaRetorno();
         } else {
 
-            retorno = new Retorno(expr, resultado, resultadoEsperado, 0);
+            retorno = new Retorno(expr,
+                                  resultado,
+                                  resultadoEsperado,
+                                  0);
             controllerRetorno.add(retorno);
             return controllerRetorno.getListaRetorno();
         }
