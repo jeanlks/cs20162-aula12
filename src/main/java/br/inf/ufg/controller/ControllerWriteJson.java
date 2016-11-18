@@ -13,19 +13,19 @@ import br.inf.ufg.write.WriteInterface;
 
 /**
  * @author Jean
- * Classe controller para escrita de arquivo .json 
+ * Classe controller para escrita de arquivo .json
  *  com resultados.
  */
 public class ControllerWriteJson implements WriteInterface {
     /**
      * @param listaRetorno
-     *        lista para escrever no arquivo json 
+     *        lista para escrever no arquivo json
      */
     @Override
-    public void write(final ArrayList<Retorno> listaRetorno) {
+    public final void write(final ArrayList<Retorno> listaRetorno) {
         Gson gson = new Gson();
         String json = gson.toJson(listaRetorno);
-        try{
+        try {
             PrintWriter writer = new PrintWriter("resultadoJson.json", "UTF-8");
             writer.println(json);
             writer.close();
@@ -33,9 +33,5 @@ public class ControllerWriteJson implements WriteInterface {
            System.out.println(e.getMessage());
         }
     }
-    
-
-
- 
 
 }

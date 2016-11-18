@@ -12,12 +12,12 @@ import br.inf.ufg.write.WriteInterface;
 
 /**
  * @author Jean
- * Classe controller para escrita de arquivo html 
+ * Classe controller para escrita de arquivo html
  *  com resultados.
  */
 public class ControllerWriteHTML implements WriteInterface {
     @Override
-    public void write(final ArrayList<Retorno> listaRetorno) {
+    public final void write(final ArrayList<Retorno> listaRetorno) {
         try {
             PrintWriter writer = new PrintWriter("resultado.html", "UTF-8");
             writer.println("<!DOCTYPE html>"
@@ -42,14 +42,14 @@ public class ControllerWriteHTML implements WriteInterface {
                     + "</tr>"
                     + "<tr>");
 
-  for (int i = 0;i<listaRetorno.size();i++) {
-     writer.println("<td>" + listaRetorno.get(i).getExpr() + "</td>");
-     writer.println("<td>" +  listaRetorno.get(i).getValorResultado() + "</td>");
-     writer.println("<td>" +  listaRetorno.get(i).getValorEsperado() + "</td>");
-     writer.println("<td>" +  listaRetorno.get(i).getCodigoErro() + "</td>");
-     writer.println("</tr>");
+  for (int i = 0; i < listaRetorno.size(); i++) {
+   writer.println("<td>" + listaRetorno.get(i).getExpr() + "</td>");
+   writer.println("<td>" +  listaRetorno.get(i).getValorResultado() + "</td>");
+   writer.println("<td>" +  listaRetorno.get(i).getValorEsperado() + "</td>");
+   writer.println("<td>" +  listaRetorno.get(i).getCodigoErro() + "</td>");
+   writer.println("</tr>");
   }
-     writer.println( "</table>" + "</body>" + "</html>");
+     writer.println("</table>" + "</body>" + "</html>");
      writer.close();
    } catch (Exception e) {
      System.out.println(e.getMessage());

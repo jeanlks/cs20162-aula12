@@ -23,7 +23,8 @@ public class ControllerReadFileLocal implements ReadFileInterface {
     private String separator = ";";
     private ArrayList<String[]> textData = new ArrayList<String[]>();
     private String path;
-
+    private FileReader fr;
+    private BufferedReader textReader;
     public ControllerReadFileLocal(final String filePath) {
         path = filePath;
     }
@@ -34,14 +35,24 @@ public class ControllerReadFileLocal implements ReadFileInterface {
     @Override
     public final ArrayList<String[]> read()
                         throws IOException {
-        FileReader fr = new FileReader(path);
-        BufferedReader textReader = new BufferedReader(fr);
+        try {
+        fr = new FileReader(path);
+        textReader = new BufferedReader(fr);
         String line;
-        while ((line = textReader.readLine()) != null) {
+        while ((line = textReader.readLine()) != null ) {
             String[] output = line.split(separator);
-                textData.add(output);
+            if(output.length==3){    
+            textData.add(output);
+            }
+        } }
+        catch (Exception e) {
+           System.out.println("Arquivo não encontrado");
         }
-        textReader.close();
+        finally {
+            fr.close();
+            textReader.close();
+        }
+        
         return textData;
 
     }

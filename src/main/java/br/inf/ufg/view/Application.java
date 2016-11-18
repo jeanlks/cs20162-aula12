@@ -18,40 +18,40 @@ import br.inf.ufg.write.WriteInterface;
 
 
 /**
+ * @author Jean
  * Classe de execução da aplicação.
  */
 public class Application {
-    static ControllerExecuta controllerExecuta;
-    static ArrayList<String[]> resultado = new ArrayList<String[]>();
-    static Retorno listaRetorno;
-    static WriteInterface controllerWrite;
-    static ControllerRetorno controllerRetorno;
-    
-    public static void main(String[] args) throws IOException {
+    private static ControllerExecuta controllerExecuta;
+    private static ArrayList<String[]> resultado =
+                         new ArrayList<String[]>();
+    private static WriteInterface controllerWrite;
+    private static ControllerRetorno controllerRetorno;
+
+    public static void main(final String[] args)
+                            throws IOException {
         ControllerRead controllerRead = new ControllerRead();
         controllerExecuta = new ControllerExecuta();
-      
-       
+        controllerRetorno = new ControllerRetorno();
+        
         if (args.length > 0) {
-            String path = (args[0]); 
+            String path = (args[0]);
             resultado = controllerRead.lerArquivo(path);
-            controllerRetorno = controllerExecuta.executa(resultado);
-            
-            
+            controllerRetorno.setListaRetorno(controllerExecuta.executa(resultado));
         }
-          if(args.length==1){
+          if (args.length == 1) {
               controllerWrite = new ControllerWriteJson();
               controllerWrite.write(controllerRetorno.getListaRetorno());
               System.out.println("Gerado Arquivo Json");
-         
-          } else if(args.length>1){
-              if(args[1].equals("-h")){
+
+          } else if (args.length > 1) {
+              if (args[1].equals("-h")) {
                   controllerWrite = new ControllerWriteHTML();
                   controllerWrite.write(controllerRetorno.getListaRetorno());
                   System.out.println("Gerado Arquivo HTML");
+              }else{
+                  System.out.println("Argumento errado");
               }
           }
-             
-        
     }
 }

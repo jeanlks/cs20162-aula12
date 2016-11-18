@@ -22,8 +22,8 @@ public class ControllerReadFileNet implements ReadFileInterface {
     private ArrayList<String[]> textData = new ArrayList<String[]>();
     private String httpAddress;
 
-    public ControllerReadFileNet(final String file_path) {
-        httpAddress = file_path;
+    public ControllerReadFileNet(final String filePath) {
+        httpAddress = filePath;
     }
     @Override
     public final ArrayList<String[]> read() throws IOException {
@@ -32,8 +32,12 @@ public class ControllerReadFileNet implements ReadFileInterface {
                        new InputStreamReader(url.openStream()));
         String line;
         while ((line = textReader.readLine()) != null) {
+            
             String[] output = line.split(separator);
+            
+            if(output.length==3){  
             textData.add(output);
+            }
         }
         textReader.close();
         return textData;

@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 import br.inf.ufg.model.Retorno;
 /**
- * 
+ *
  * Interface para escrita de arquivos.
  */
 public interface WriteInterface {

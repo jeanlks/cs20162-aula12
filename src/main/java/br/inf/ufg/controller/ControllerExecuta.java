@@ -28,6 +28,7 @@ public class ControllerExecuta {
    private String[] valores;
    private Float resultadoEsperado;
    private final float precisao = (float) 0.00000001;
+   private ArrayList<Retorno> listaRetorno = new ArrayList<>();
     ControllerRetorno controllerRetorno = new ControllerRetorno();;
     /**
      * @param resultado lista de expressoes
@@ -36,25 +37,25 @@ public class ControllerExecuta {
      *         para as expressoes e
      *         impressao posterior.
      */
-    public ControllerRetorno executa(final ArrayList<String[]> resultado) {
+    public final ArrayList<Retorno> executa(
+                                final ArrayList<String[]> resultado) {
         for (int i = 0; i < resultado.size(); i++) {
             calcula(resultado.get(i)[0], resultado.get(i)[1],
                             Float.valueOf(resultado.get(i)[2]));
 
         }
-        return controllerRetorno;
+        return listaRetorno;
     }
-    
     /**
      * @param expr expressão para cálculo.
      * @param variaveisAtbr variaveis de atribuicao.
      * @param resultadoEsperadoExpr resultado esperado pelo teste.
      * @return retorna lista de expressoes calculadas.
      */
-    public ArrayList<Retorno> calcula(final String expr,
+    public final ArrayList<Retorno> calcula(final String expr,
                                       final String variaveisAtbr,
                                       final Float resultadoEsperadoExpr) {
-  
+
         this.resultadoEsperado = resultadoEsperadoExpr;
         if (variaveisAtbr.length() != 0) {
             this.variaveis = variaveisAtbr.split(separador);
@@ -72,7 +73,7 @@ public class ControllerExecuta {
                                   resultado,
                                   resultadoEsperadoExpr,
                                   1);
-            controllerRetorno.add(retorno);
+            listaRetorno.add(retorno);
             return controllerRetorno.getListaRetorno();
         } else {
 
@@ -80,7 +81,7 @@ public class ControllerExecuta {
                                   resultado,
                                   resultadoEsperado,
                                   0);
-            controllerRetorno.add(retorno);
+            listaRetorno.add(retorno);
             return controllerRetorno.getListaRetorno();
         }
 
