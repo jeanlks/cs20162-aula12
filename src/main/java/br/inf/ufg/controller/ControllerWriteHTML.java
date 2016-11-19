@@ -20,8 +20,9 @@ import br.inf.ufg.write.WriteInterface;
 public class ControllerWriteHTML implements WriteInterface {
     private PrintWriter writer;
     @Override
-    public final void write(final ArrayList<Retorno> listaRetorno) throws IOException {
-        try {
+    public final void write(final ArrayList<Retorno> listaRetorno,
+                            final Long tempoDecorrido) throws IOException {
+        
             writer = new PrintWriter("resultado.html", "UTF-8");
             writer.println("<!DOCTYPE html>"
                     + "<html>"
@@ -52,12 +53,10 @@ public class ControllerWriteHTML implements WriteInterface {
    writer.println("<td>" +  listaRetorno.get(i).getCodigoErro() + "</td>");
    writer.println("</tr>");
   }
-     writer.println("</table>" + "</body>" + "</html>");
+     writer.println("</table>"
+                   + "<a>Tempo em mili segundos: "+tempoDecorrido+"</a>"
+                   + "</body>"
+                   + "</html>");
      writer.close();
-   } catch (IOException e) {
-     throw new IOException(e);
-   }finally{
-       writer.close();
-   }
     }
 }

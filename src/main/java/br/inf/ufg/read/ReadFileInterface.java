@@ -12,6 +12,7 @@ import java.util.ArrayList;
  *
  * Interface para leitura de arquivos.
  */
+@FunctionalInterface
 public interface ReadFileInterface {
 /**
  * @return arrayList com arquivo lido.

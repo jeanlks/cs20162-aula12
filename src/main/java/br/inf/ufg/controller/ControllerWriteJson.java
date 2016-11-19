@@ -27,19 +27,14 @@ public class ControllerWriteJson implements WriteInterface {
      * @throws UnsupportedEncodingException caso haja algum problema
      */
     @Override
-    public final void write(final ArrayList<Retorno> listaRetorno) throws IOException {
+    public final void write(final ArrayList<Retorno> listaRetorno,
+                            final Long tempoDecorrido) throws IOException {
         Gson gson = new Gson();
         String json = gson.toJson(listaRetorno);
-        try {
-             writer = new PrintWriter("resultadoJson.json", "UTF-8");
+            writer = new PrintWriter("resultadoJson.json", "UTF-8");
             writer.println(json);
             writer.close();
-        } catch (IOException e) {
-            throw new IOException(e);
-           
-        }finally {
-            writer.close();
-        }
+            writer.close();    
     }
 
 }

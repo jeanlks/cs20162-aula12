@@ -22,6 +22,7 @@ public class ApplicationTest {
     WriteInterface controllerWrite;
     ControllerRetorno controllerRetorno;
     ControllerExecuta controllerExecuta;
+    Long tempoInicial,tempoFinal,tempoDecorrido;
     ArrayList<String[]> resultado =
             new ArrayList<String[]>();
     
@@ -34,10 +35,13 @@ public class ApplicationTest {
     }
     @Test
     public void testLendoArquivoEEscrevendoJSON() throws IOException {
+        tempoInicial = System.currentTimeMillis();
         resultado = controllerRead.lerArquivo("test.txt");
         controllerRetorno.setListaRetorno(controllerExecuta.executa(resultado));
         controllerWrite = new ControllerWriteJson();
-        controllerWrite.write(controllerRetorno.getListaRetorno());
+        tempoFinal = System.currentTimeMillis();
+        tempoDecorrido = tempoFinal -tempoInicial;
+        controllerWrite.write(controllerRetorno.getListaRetorno(),tempoDecorrido);
          
     }
     @Test(expected = NullPointerException.class)
@@ -52,10 +56,13 @@ public class ApplicationTest {
 
     @Test
     public void testLendoArquivoEEscrevendoHTML() throws IOException {
+        tempoInicial = System.currentTimeMillis();
         resultado = controllerRead.lerArquivo("https://raw.githubusercontent.com/jeanlks/cs20162-aula12/master/test.txt");
         controllerRetorno.setListaRetorno(controllerExecuta.executa(resultado));
         controllerWrite = new ControllerWriteHTML();
-        controllerWrite.write(controllerRetorno.getListaRetorno());
+        tempoFinal = System.currentTimeMillis();
+        tempoDecorrido = tempoFinal -tempoInicial;
+        controllerWrite.write(controllerRetorno.getListaRetorno(),tempoDecorrido);
     }
 
 }

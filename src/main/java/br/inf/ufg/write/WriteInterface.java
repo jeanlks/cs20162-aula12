@@ -14,6 +14,7 @@ import br.inf.ufg.model.Retorno;
  *
  * Interface para escrita de arquivos.
  */
+@FunctionalInterface
 public interface WriteInterface  {
     /**
      * @param listaRetorno lista de retorno para
@@ -22,5 +23,5 @@ public interface WriteInterface  {
      * entrada do usuario.
      * @throws caso haja algum problema
      */
-    void write(ArrayList<Retorno> listaRetorno) throws IOException;
+    void write(ArrayList<Retorno> listaRetorno,Long tempoDecorrido) throws IOException;
 }

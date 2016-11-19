@@ -47,13 +47,15 @@ public class Application {
         }
           if (args.length == 1) {
               controllerWrite = new ControllerWriteJson();
-              controllerWrite.write(controllerRetorno.getListaRetorno());
+              controllerWrite.write(controllerRetorno.getListaRetorno(),
+                                    controllerRetorno.getTempoDecorrido());
               System.out.println("Gerado Arquivo Json");
 
           } else if (args.length > 1) {
               if ("-h".equals(args[1])) {
                   controllerWrite = new ControllerWriteHTML();
-                  controllerWrite.write(controllerRetorno.getListaRetorno());
+                  controllerWrite.write(controllerRetorno.getListaRetorno(),
+                                        controllerRetorno.getTempoDecorrido());
                   System.out.println("Gerado Arquivo HTML");
               }else{
                   System.out.println("Argumento errado");
