@@ -45,7 +45,7 @@ public class Application {
               System.out.println("Gerado Arquivo Json");
 
           } else if (args.length > 1) {
-              if (args[1].equals("-h")) {
+              if ("-h".equals(args[1])) {
                   controllerWrite = new ControllerWriteHTML();
                   controllerWrite.write(controllerRetorno.getListaRetorno());
                   System.out.println("Gerado Arquivo HTML");

@@ -29,7 +29,7 @@ public class ControllerExecuta {
    private Float resultadoEsperado;
    private final float precisao = (float) 0.00000001;
    private ArrayList<Retorno> listaRetorno = new ArrayList<>();
-    ControllerRetorno controllerRetorno = new ControllerRetorno();;
+   private  ControllerRetorno controllerRetorno;
     /**
      * @param resultado lista de expressoes
      *                  para calculo
@@ -55,7 +55,7 @@ public class ControllerExecuta {
     public final ArrayList<Retorno> calcula(final String expr,
                                       final String variaveisAtbr,
                                       final Float resultadoEsperadoExpr) {
-
+        controllerRetorno = new ControllerRetorno();
         this.resultadoEsperado = resultadoEsperadoExpr;
         if (variaveisAtbr.length() != 0) {
             this.variaveis = variaveisAtbr.split(separador);

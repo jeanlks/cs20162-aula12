@@ -6,6 +6,7 @@
 package br.inf.ufg.write;
 
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import br.inf.ufg.model.Retorno;
@@ -13,12 +14,13 @@ import br.inf.ufg.model.Retorno;
  *
  * Interface para escrita de arquivos.
  */
-public interface WriteInterface {
+public interface WriteInterface  {
     /**
      * @param listaRetorno lista de retorno para
      * escrita no arquivo.
      * Escreve arquivo em json ou html dependendo da
      * entrada do usuario.
+     * @throws caso haja algum problema
      */
-    void write(ArrayList<Retorno> listaRetorno);
+    void write(ArrayList<Retorno> listaRetorno) throws IOException;
 }

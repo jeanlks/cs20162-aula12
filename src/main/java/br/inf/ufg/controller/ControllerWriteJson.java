@@ -6,7 +6,10 @@
 package br.inf.ufg.controller;
 
 import com.google.gson.Gson;
+
+import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import br.inf.ufg.model.Retorno;
 import br.inf.ufg.write.WriteInterface;
@@ -17,20 +20,25 @@ import br.inf.ufg.write.WriteInterface;
  *  com resultados.
  */
 public class ControllerWriteJson implements WriteInterface {
+    private  PrintWriter writer;
     /**
      * @param listaRetorno
      *        lista para escrever no arquivo json
+     * @throws UnsupportedEncodingException caso haja algum problema
      */
     @Override
-    public final void write(final ArrayList<Retorno> listaRetorno) {
+    public final void write(final ArrayList<Retorno> listaRetorno) throws IOException {
         Gson gson = new Gson();
         String json = gson.toJson(listaRetorno);
         try {
-            PrintWriter writer = new PrintWriter("resultadoJson.json", "UTF-8");
+             writer = new PrintWriter("resultadoJson.json", "UTF-8");
             writer.println(json);
             writer.close();
-        } catch (Exception e) {
-           System.out.println(e.getMessage());
+        } catch (IOException e) {
+            throw new IOException(e);
+           
+        }finally {
+            writer.close();
         }
     }
 

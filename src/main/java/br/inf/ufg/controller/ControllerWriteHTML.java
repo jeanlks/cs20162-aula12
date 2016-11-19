@@ -5,7 +5,9 @@
 
 package br.inf.ufg.controller;
 
+import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import br.inf.ufg.model.Retorno;
 import br.inf.ufg.write.WriteInterface;
@@ -16,10 +18,11 @@ import br.inf.ufg.write.WriteInterface;
  *  com resultados.
  */
 public class ControllerWriteHTML implements WriteInterface {
+    private PrintWriter writer;
     @Override
-    public final void write(final ArrayList<Retorno> listaRetorno) {
+    public final void write(final ArrayList<Retorno> listaRetorno) throws IOException {
         try {
-            PrintWriter writer = new PrintWriter("resultado.html", "UTF-8");
+            writer = new PrintWriter("resultado.html", "UTF-8");
             writer.println("<!DOCTYPE html>"
                     + "<html>"
                     + "<head>" + "<style>" + "table {"
@@ -51,8 +54,10 @@ public class ControllerWriteHTML implements WriteInterface {
   }
      writer.println("</table>" + "</body>" + "</html>");
      writer.close();
-   } catch (Exception e) {
-     System.out.println(e.getMessage());
+   } catch (IOException e) {
+     throw new IOException(e);
+   }finally{
+       writer.close();
    }
     }
 }

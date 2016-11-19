@@ -45,8 +45,9 @@ public class ControllerReadFileLocal implements ReadFileInterface {
             textData.add(output);
             }
         } }
-        catch (Exception e) {
+        catch (IOException e) {
            System.out.println("Arquivo não encontrado");
+          throw new IOException(e);
         }
         finally {
             fr.close();
