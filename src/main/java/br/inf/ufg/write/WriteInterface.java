@@ -23,5 +23,5 @@ public interface WriteInterface  {
      * entrada do usuario.
      * @throws caso haja algum problema
      */
-    void write(ArrayList<Retorno> listaRetorno,Long tempoDecorrido) throws IOException;
+    void write(ArrayList<Retorno> listaRetorno,Long tempoDecorrido,Long usoMemoria) throws IOException;
 }

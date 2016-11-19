@@ -21,7 +21,7 @@ public class ControllerWriteHTML implements WriteInterface {
     private PrintWriter writer;
     @Override
     public final void write(final ArrayList<Retorno> listaRetorno,
-                            final Long tempoDecorrido) throws IOException {
+                            final Long tempoDecorrido, Long usoMemoria) throws IOException {
         
             writer = new PrintWriter("resultado.html", "UTF-8");
             writer.println("<!DOCTYPE html>"
@@ -55,6 +55,7 @@ public class ControllerWriteHTML implements WriteInterface {
   }
      writer.println("</table>"
                    + "<a>Tempo em mili segundos: "+tempoDecorrido+"</a>"
+                   + "<br><a>Uso de memoria: "+usoMemoria+"</a>"
                    + "</body>"
                    + "</html>");
      writer.close();

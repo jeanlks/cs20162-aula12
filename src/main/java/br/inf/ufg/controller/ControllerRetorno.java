@@ -15,8 +15,15 @@ import br.inf.ufg.model.Retorno;
  */
 public class ControllerRetorno {
     private ArrayList<Retorno> listaRetorno = new ArrayList<>();
-    private Long tempoDecorrido;
+    private Long tempoDecorrido,usoMemoria;
     
+    
+    public Long getUsoMemoria() {
+        return usoMemoria;
+    }
+    public void setUsoMemoria(Long usoMemoria) {
+        this.usoMemoria = usoMemoria;
+    }
     /**
      * 
      * @return tempo decorrido

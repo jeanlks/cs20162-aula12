@@ -22,7 +22,8 @@ public class ApplicationTest {
     WriteInterface controllerWrite;
     ControllerRetorno controllerRetorno;
     ControllerExecuta controllerExecuta;
-    Long tempoInicial,tempoFinal,tempoDecorrido;
+    Long tempoInicial,tempoFinal,tempoDecorrido,usoMemoria;
+    Runtime runtime;
     ArrayList<String[]> resultado =
             new ArrayList<String[]>();
     
@@ -32,6 +33,7 @@ public class ApplicationTest {
       controllerRead = new ControllerRead();
       controllerExecuta = new ControllerExecuta();
       controllerRetorno = new ControllerRetorno();
+      runtime = Runtime.getRuntime();
     }
     @Test
     public void testLendoArquivoEEscrevendoJSON() throws IOException {
@@ -41,7 +43,8 @@ public class ApplicationTest {
         controllerWrite = new ControllerWriteJson();
         tempoFinal = System.currentTimeMillis();
         tempoDecorrido = tempoFinal -tempoInicial;
-        controllerWrite.write(controllerRetorno.getListaRetorno(),tempoDecorrido);
+        usoMemoria = runtime.totalMemory() - runtime.freeMemory();
+        controllerWrite.write(controllerRetorno.getListaRetorno(),tempoDecorrido,usoMemoria);
          
     }
     @Test(expected = NullPointerException.class)
@@ -62,7 +65,8 @@ public class ApplicationTest {
         controllerWrite = new ControllerWriteHTML();
         tempoFinal = System.currentTimeMillis();
         tempoDecorrido = tempoFinal -tempoInicial;
-        controllerWrite.write(controllerRetorno.getListaRetorno(),tempoDecorrido);
+        usoMemoria = runtime.totalMemory() - runtime.freeMemory();
+        controllerWrite.write(controllerRetorno.getListaRetorno(),tempoDecorrido, usoMemoria);
     }
 
 }

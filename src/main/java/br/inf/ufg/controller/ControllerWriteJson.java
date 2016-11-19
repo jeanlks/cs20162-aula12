@@ -28,7 +28,8 @@ public class ControllerWriteJson implements WriteInterface {
      */
     @Override
     public final void write(final ArrayList<Retorno> listaRetorno,
-                            final Long tempoDecorrido) throws IOException {
+                            final Long tempoDecorrido,
+                            final Long usoMemoria) throws IOException {
         Gson gson = new Gson();
         String json = gson.toJson(listaRetorno);
             writer = new PrintWriter("resultadoJson.json", "UTF-8");

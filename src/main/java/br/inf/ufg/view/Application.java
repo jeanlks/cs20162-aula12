@@ -27,14 +27,16 @@ public class Application {
                          new ArrayList<String[]>();
     private static WriteInterface controllerWrite;
     private static ControllerRetorno controllerRetorno;
-    private static Long tempoInicial;
-    private static Long tempoFinal;
-
+    private static Long tempoInicial,tempoFinal,usoMemoria;
+   
+    private static Runtime runtime;
+    
     public static void main(final String[] args)
                             throws IOException {
         ControllerRead controllerRead = new ControllerRead();
         controllerExecuta = new ControllerExecuta();
         controllerRetorno = new ControllerRetorno();
+        runtime = Runtime.getRuntime();
         
         if (args.length > 0) {
             String path = (args[0]);
@@ -43,19 +45,22 @@ public class Application {
             controllerRetorno.setListaRetorno(controllerExecuta.executa(resultado));
             tempoFinal = System.currentTimeMillis();
             controllerRetorno.setTempoDecorrido(tempoFinal-tempoInicial);
+            usoMemoria = runtime.totalMemory() - runtime.freeMemory();
             
         }
           if (args.length == 1) {
               controllerWrite = new ControllerWriteJson();
               controllerWrite.write(controllerRetorno.getListaRetorno(),
-                                    controllerRetorno.getTempoDecorrido());
+                                    controllerRetorno.getTempoDecorrido(),
+                                    controllerRetorno.getUsoMemoria());
               System.out.println("Gerado Arquivo Json");
 
           } else if (args.length > 1) {
               if ("-h".equals(args[1])) {
                   controllerWrite = new ControllerWriteHTML();
                   controllerWrite.write(controllerRetorno.getListaRetorno(),
-                                        controllerRetorno.getTempoDecorrido());
+                                        controllerRetorno.getTempoDecorrido(),
+                                        controllerRetorno.getUsoMemoria());
                   System.out.println("Gerado Arquivo HTML");
               }else{
                   System.out.println("Argumento errado");
