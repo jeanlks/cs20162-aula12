@@ -15,7 +15,22 @@ import br.inf.ufg.model.Retorno;
  */
 public class ControllerRetorno {
     private ArrayList<Retorno> listaRetorno = new ArrayList<>();
-
+    private Long tempoDecorrido;
+    
+    /**
+     * 
+     * @return tempo decorrido
+     */
+    public Long getTempoDecorrido() {
+        return tempoDecorrido;
+    }
+    /**
+     * 
+     * @param tempoDecorridoParam
+     */
+    public void setTempoDecorrido(final Long tempoDecorridoParam) {
+        this.tempoDecorrido = tempoDecorridoParam;
+    }
     /**
      * @return lista de expressoes calculadas.
      */
@@ -34,7 +49,5 @@ public class ControllerRetorno {
     /**
      * @param retorno adiciona objeto retorno na lista.
      */
-    public final void add(final Retorno retorno) {
-        listaRetorno.add(retorno);
-    }
+
 }

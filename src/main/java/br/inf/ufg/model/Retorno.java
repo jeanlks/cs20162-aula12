@@ -47,16 +47,7 @@ public class Retorno {
     public final void setCodigoErro(final int codigoErro) {
         this.codigoErro = codigoErro;
     }
-
-    public Retorno(final String exprParam,
-                   final Float valorResultadoParam,
-                   final Float valorEsperadoParam,
-                   final int codigoErroParam) {
-        super();
-        this.expr = exprParam;
-        this.valorResultado = valorResultadoParam;
-        this.valorEsperado = valorEsperadoParam;
-        this.codigoErro = codigoErroParam;
+    public Retorno(){ 
     }
-
+   
 }

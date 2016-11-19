@@ -30,6 +30,8 @@ public class ControllerExecuta {
    private final float precisao = (float) 0.00000001;
    private ArrayList<Retorno> listaRetorno = new ArrayList<>();
    private  ControllerRetorno controllerRetorno;
+   private final int CODIGO_RETORNO_SUCESSO = 0;
+   private final int CODIGO_RETORNO_ERRADO = 1;
     /**
      * @param resultado lista de expressoes
      *                  para calculo
@@ -56,6 +58,7 @@ public class ControllerExecuta {
                                       final String variaveisAtbr,
                                       final Float resultadoEsperadoExpr) {
         controllerRetorno = new ControllerRetorno();
+        retorno = new Retorno();
         this.resultadoEsperado = resultadoEsperadoExpr;
         if (variaveisAtbr.length() != 0) {
             this.variaveis = variaveisAtbr.split(separador);
@@ -69,18 +72,19 @@ public class ControllerExecuta {
         Parser parser = new Parser(tokens);
         float resultado = parser.expressao().valor(ctx);
         if (Math.abs(resultado - this.resultadoEsperado) > precisao) {
-            retorno = new Retorno(expr,
-                                  resultado,
-                                  resultadoEsperadoExpr,
-                                  1);
+            retorno.setExpr(expr);
+            retorno.setValorEsperado(resultadoEsperadoExpr);
+            retorno.setValorResultado(resultado);
+            retorno.setCodigoErro(CODIGO_RETORNO_ERRADO);
             listaRetorno.add(retorno);
             return controllerRetorno.getListaRetorno();
         } else {
 
-            retorno = new Retorno(expr,
-                                  resultado,
-                                  resultadoEsperado,
-                                  0);
+            retorno.setExpr(expr);
+            retorno.setValorEsperado(resultadoEsperadoExpr);
+            retorno.setValorResultado(resultado);
+            retorno.setCodigoErro(CODIGO_RETORNO_SUCESSO);
+            
             listaRetorno.add(retorno);
             return controllerRetorno.getListaRetorno();
         }

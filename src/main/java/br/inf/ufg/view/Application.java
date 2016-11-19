@@ -27,6 +27,8 @@ public class Application {
                          new ArrayList<String[]>();
     private static WriteInterface controllerWrite;
     private static ControllerRetorno controllerRetorno;
+    private static Long tempoInicial;
+    private static Long tempoFinal;
 
     public static void main(final String[] args)
                             throws IOException {
@@ -36,8 +38,12 @@ public class Application {
         
         if (args.length > 0) {
             String path = (args[0]);
+            tempoInicial = System.currentTimeMillis();
             resultado = controllerRead.lerArquivo(path);
             controllerRetorno.setListaRetorno(controllerExecuta.executa(resultado));
+            tempoFinal = System.currentTimeMillis();
+            controllerRetorno.setTempoDecorrido(tempoFinal-tempoInicial);
+            
         }
           if (args.length == 1) {
               controllerWrite = new ControllerWriteJson();
