@@ -23,7 +23,7 @@ public class ControllerWriteHTML implements WriteInterface {
     public final void write(final ArrayList<Retorno> listaRetorno,
                             final Long tempoDecorrido, Long usoMemoria) throws IOException {
         
-            writer = new PrintWriter("resultado.html", "UTF-8");
+            writer = new PrintWriter(System.getProperty("user.dir")+"/resultado.html", "UTF-8");
             writer.println("<!DOCTYPE html>"
                     + "<html>"
                     + "<head>" + "<style>" + "table {"

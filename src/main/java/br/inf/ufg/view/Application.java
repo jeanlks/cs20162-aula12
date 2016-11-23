@@ -53,15 +53,16 @@ public class Application {
               controllerWrite.write(controllerRetorno.getListaRetorno(),
                                     controllerRetorno.getTempoDecorrido(),
                                     controllerRetorno.getUsoMemoria());
-              System.out.println("Gerado Arquivo Json");
-
+              System.out.println("Gerado Arquivo Json em:");
+              System.out.println(System.getProperty("user.dir").toString());
           } else if (args.length > 1) {
               if ("-h".equals(args[1])) {
                   controllerWrite = new ControllerWriteHTML();
                   controllerWrite.write(controllerRetorno.getListaRetorno(),
                                         controllerRetorno.getTempoDecorrido(),
                                         controllerRetorno.getUsoMemoria());
-                  System.out.println("Gerado Arquivo HTML");
+                  System.out.println("Gerado Arquivo HTML em:");
+                  System.out.println(System.getProperty("user.dir").toString());
               }else{
                   System.out.println("Argumento errado");
               }

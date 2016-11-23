@@ -32,7 +32,8 @@ public class ControllerWriteJson implements WriteInterface {
                             final Long usoMemoria) throws IOException {
         Gson gson = new Gson();
         String json = gson.toJson(listaRetorno);
-            writer = new PrintWriter("resultadoJson.json", "UTF-8");
+            writer = new PrintWriter(System.getProperty("user.dir")+"/resultadoJson.json", "UTF-8");
+           
             writer.println(json);
             writer.close();
             writer.close();    
