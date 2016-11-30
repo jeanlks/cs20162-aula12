@@ -1,9 +1,10 @@
-package br.inf.ufg.test;
+
 
 import static org.junit.Assert.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -24,7 +25,7 @@ public class ApplicationTest {
     ControllerExecuta controllerExecuta;
     Long tempoInicial,tempoFinal,tempoDecorrido,usoMemoria;
     Runtime runtime;
-    ArrayList<String[]> resultado =
+    List<String[]> resultado =
             new ArrayList<String[]>();
     
     @Before

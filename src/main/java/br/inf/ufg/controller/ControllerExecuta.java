@@ -28,7 +28,7 @@ public class ControllerExecuta {
    private String[] valores;
    private Float resultadoEsperado;
    private final float precisao = (float) 0.00000001;
-   private ArrayList<Retorno> listaRetorno = new ArrayList<>();
+   private List<Retorno> listaRetorno = new ArrayList<>();
    private  ControllerRetorno controllerRetorno;
    private final int CODIGO_RETORNO_SUCESSO = 0;
    private final int CODIGO_RETORNO_ERRADO = 1;
@@ -39,8 +39,8 @@ public class ControllerExecuta {
      *         para as expressoes e
      *         impressao posterior.
      */
-    public final ArrayList<Retorno> executa(
-                                final ArrayList<String[]> resultado) {
+    public final List<Retorno> executa(
+                                final List<String[]> resultado) {
         for (int i = 0; i < resultado.size(); i++) {
             calcula(resultado.get(i)[0], resultado.get(i)[1],
                             Float.valueOf(resultado.get(i)[2]));
@@ -54,9 +54,10 @@ public class ControllerExecuta {
      * @param resultadoEsperadoExpr resultado esperado pelo teste.
      * @return retorna lista de expressoes calculadas.
      */
-    public final ArrayList<Retorno> calcula(final String expr,
+    public final List<Retorno> calcula(final String expr,
                                       final String variaveisAtbr,
                                       final Float resultadoEsperadoExpr) {
+        
         controllerRetorno = new ControllerRetorno();
         retorno = new Retorno();
         this.resultadoEsperado = resultadoEsperadoExpr;
@@ -65,6 +66,7 @@ public class ControllerExecuta {
             for (int i = 0; i < this.variaveis.length; i++) {
                 valores = this.variaveis[i].split("=");
                 ctx.put(valores[0], Float.valueOf(valores[1]));
+              
             }
         }
 

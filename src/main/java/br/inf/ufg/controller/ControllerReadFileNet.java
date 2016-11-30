@@ -10,6 +10,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
+
 import br.inf.ufg.read.ReadFileInterface;
 
 
@@ -19,14 +21,14 @@ import br.inf.ufg.read.ReadFileInterface;
  */
 public class ControllerReadFileNet implements ReadFileInterface {
     private String separator = ";";
-    private ArrayList<String[]> textData = new ArrayList<String[]>();
+    private List<String[]> textData = new ArrayList<String[]>();
     private String httpAddress;
     BufferedReader textReader;
     public ControllerReadFileNet(final String filePath) {
         httpAddress = filePath;
     }
     @Override
-    public final ArrayList<String[]> read() throws IOException {
+    public final List<String[]> read() throws IOException {
         URL url = new URL(httpAddress);
        try{
          textReader = new BufferedReader(

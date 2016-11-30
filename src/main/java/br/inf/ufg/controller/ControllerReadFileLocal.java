@@ -11,6 +11,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import br.inf.ufg.read.ReadFileInterface;
 
@@ -21,7 +22,7 @@ import br.inf.ufg.read.ReadFileInterface;
  */
 public class ControllerReadFileLocal implements ReadFileInterface {
     private String separator = ";";
-    private ArrayList<String[]> textData = new ArrayList<String[]>();
+    private List<String[]> textData = new ArrayList<String[]>();
     private String path;
     private FileReader fr;
     private BufferedReader textReader;
@@ -33,7 +34,7 @@ public class ControllerReadFileLocal implements ReadFileInterface {
      *Metodo de ler arquivo locais.
      */
     @Override
-    public final ArrayList<String[]> read()
+    public final List<String[]> read()
                         throws IOException {
         try {
         fr = new FileReader(path);

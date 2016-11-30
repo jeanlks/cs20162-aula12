@@ -8,6 +8,7 @@ package br.inf.ufg.write;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import br.inf.ufg.model.Retorno;
 /**
@@ -23,5 +24,5 @@ public interface WriteInterface  {
      * entrada do usuario.
      * @throws caso haja algum problema
      */
-    void write(ArrayList<Retorno> listaRetorno,Long tempoDecorrido,Long usoMemoria) throws IOException;
+    void write(List<Retorno> listaRetorno,Long tempoDecorrido,Long usoMemoria) throws IOException;
 }

@@ -11,6 +11,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.List;
+
 import br.inf.ufg.model.Retorno;
 import br.inf.ufg.write.WriteInterface;
 
@@ -27,7 +29,7 @@ public class ControllerWriteJson implements WriteInterface {
      * @throws UnsupportedEncodingException caso haja algum problema
      */
     @Override
-    public final void write(final ArrayList<Retorno> listaRetorno,
+    public final void write(final List<Retorno> listaRetorno,
                             final Long tempoDecorrido,
                             final Long usoMemoria) throws IOException {
         Gson gson = new Gson();

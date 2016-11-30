@@ -5,6 +5,7 @@
 package br.inf.ufg.controller;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import br.inf.ufg.model.Retorno;
 /**
@@ -14,7 +15,7 @@ import br.inf.ufg.model.Retorno;
  *
  */
 public class ControllerRetorno {
-    private ArrayList<Retorno> listaRetorno = new ArrayList<>();
+    private List<Retorno> listaRetorno = new ArrayList<>();
     private Long tempoDecorrido,usoMemoria;
     
     
@@ -41,7 +42,7 @@ public class ControllerRetorno {
     /**
      * @return lista de expressoes calculadas.
      */
-    public final ArrayList<Retorno> getListaRetorno() {
+    public final List<Retorno> getListaRetorno() {
         return listaRetorno;
     }
     /**
@@ -49,7 +50,7 @@ public class ControllerRetorno {
      *                     ja calculadas e prontas
      *                     para serem escritas.
      */
-   public final void setListaRetorno(final ArrayList<Retorno>
+   public final void setListaRetorno(final List<Retorno>
                                            listaRetornoParam) {
         this.listaRetorno = listaRetornoParam;
     }

@@ -9,6 +9,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.List;
+
 import br.inf.ufg.model.Retorno;
 import br.inf.ufg.write.WriteInterface;
 
@@ -20,7 +22,7 @@ import br.inf.ufg.write.WriteInterface;
 public class ControllerWriteHTML implements WriteInterface {
     private PrintWriter writer;
     @Override
-    public final void write(final ArrayList<Retorno> listaRetorno,
+    public final void write(final List<Retorno> listaRetorno,
                             final Long tempoDecorrido, Long usoMemoria) throws IOException {
         
             writer = new PrintWriter(System.getProperty("user.dir")+"/resultado.html", "UTF-8");

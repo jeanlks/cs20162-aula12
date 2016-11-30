@@ -7,7 +7,7 @@ package br.inf.ufg.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
-
+import java.util.List;
 
 import br.inf.ufg.read.ReadFileInterface;
 
@@ -19,7 +19,7 @@ import br.inf.ufg.read.ReadFileInterface;
  */
 public class ControllerRead {
     private ReadFileInterface readFile;
-    private ArrayList<String[]> resultado = new ArrayList<String[]>();
+    private List<String[]> resultado = new ArrayList<String[]>();
     /**
      *
      * @param path local do arquivo.
@@ -28,7 +28,7 @@ public class ControllerRead {
      * @throws IOException caso haja excessao
      *                      ao ler arquivo.
      */
-    public final ArrayList<String[]> lerArquivo(final String path)
+    public final List<String[]> lerArquivo(final String path)
                                         throws IOException {
         if (path.contains("http")) {
           return  lerArquivoNet(path);
@@ -43,7 +43,7 @@ public class ControllerRead {
     * @throws IOException casa hoja excessao
     *                     ao ler arquivo.
     */
-    public final ArrayList<String[]> lerArquivoLocal(final String path)
+    public final List<String[]> lerArquivoLocal(final String path)
                                             throws IOException {
         readFile = new ControllerReadFileLocal(path);
         resultado = readFile.read();
@@ -56,7 +56,7 @@ public class ControllerRead {
      @throws IOException casa hoja excessao
      *                     ao ler arquivo.
      */
-    public final ArrayList<String[]> lerArquivoNet(final String path)
+    public final List<String[]> lerArquivoNet(final String path)
                                             throws IOException {
         readFile = new ControllerReadFileNet(path);
         resultado = readFile.read();
