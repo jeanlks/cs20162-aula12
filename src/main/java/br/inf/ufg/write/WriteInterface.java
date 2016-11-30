@@ -7,7 +7,6 @@ package br.inf.ufg.write;
 
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import br.inf.ufg.model.Retorno;
@@ -22,7 +21,11 @@ public interface WriteInterface  {
      * escrita no arquivo.
      * Escreve arquivo em json ou html dependendo da
      * entrada do usuario.
-     * @throws caso haja algum problema
+     * @param usoMemoria uso de Memoria.
+     * @param tempoDecorrido tempo decorrido.
+     * @throws IOException caso haja algum problema
      */
-    void write(List<Retorno> listaRetorno,Long tempoDecorrido,Long usoMemoria) throws IOException;
+    void write(List<Retorno> listaRetorno,
+            Long tempoDecorrido,
+            Long usoMemoria) throws IOException;
 }

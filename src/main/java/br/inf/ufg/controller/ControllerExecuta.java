@@ -21,17 +21,61 @@ import br.inf.ufg.model.Retorno;
  * Classe controller para execução dos calculos.
  */
 public class ControllerExecuta {
+
+    /**
+     * retorno de solucoes.
+     */
    private Retorno retorno;
+
+   /**
+    * hashmap de variaveis.
+    */
    private  Map<String, Float> ctx = new HashMap<>();
+
+   /**
+    * variaveis de resolucao da expressao.
+    */
    private String[] variaveis;
+
+   /**
+    * separador de strings.
+    */
    private String separador = ",";
+
+   /**
+    * valores de resultados.
+    */
    private String[] valores;
+
+   /**
+    * resultado esperado da expressao.
+    */
    private Float resultadoEsperado;
+
+   /**
+    * precisao de calculo de float.
+    */
    private final float precisao = (float) 0.00000001;
+
+   /**
+    * lista de retorno de solucoes.
+    */
    private List<Retorno> listaRetorno = new ArrayList<>();
+
+   /**
+    * Controlador de retorno.
+    */
    private  ControllerRetorno controllerRetorno;
-   private final int CODIGO_RETORNO_SUCESSO = 0;
-   private final int CODIGO_RETORNO_ERRADO = 1;
+
+   /**
+    * codigo de sucesso.
+    */
+   private final int codigoRetornoSucesso = 0;
+
+   /**
+    * codigo de sinalizacao de erro.
+    */
+   private final int codigoRetornoErrado = 1;
     /**
      * @param resultado lista de expressoes
      *                  para calculo
@@ -57,7 +101,7 @@ public class ControllerExecuta {
     public final List<Retorno> calcula(final String expr,
                                       final String variaveisAtbr,
                                       final Float resultadoEsperadoExpr) {
-        
+
         controllerRetorno = new ControllerRetorno();
         retorno = new Retorno();
         this.resultadoEsperado = resultadoEsperadoExpr;
@@ -66,7 +110,7 @@ public class ControllerExecuta {
             for (int i = 0; i < this.variaveis.length; i++) {
                 valores = this.variaveis[i].split("=");
                 ctx.put(valores[0], Float.valueOf(valores[1]));
-              
+
             }
         }
 
@@ -77,7 +121,7 @@ public class ControllerExecuta {
             retorno.setExpr(expr);
             retorno.setValorEsperado(resultadoEsperadoExpr);
             retorno.setValorResultado(resultado);
-            retorno.setCodigoErro(CODIGO_RETORNO_ERRADO);
+            retorno.setCodigoErro(codigoRetornoErrado);
             listaRetorno.add(retorno);
             return controllerRetorno.getListaRetorno();
         } else {
@@ -85,8 +129,7 @@ public class ControllerExecuta {
             retorno.setExpr(expr);
             retorno.setValorEsperado(resultadoEsperadoExpr);
             retorno.setValorResultado(resultado);
-            retorno.setCodigoErro(CODIGO_RETORNO_SUCESSO);
-            
+            retorno.setCodigoErro(codigoRetornoSucesso);
             listaRetorno.add(retorno);
             return controllerRetorno.getListaRetorno();
         }

@@ -9,8 +9,6 @@ import com.google.gson.Gson;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
 import java.util.List;
 
 import br.inf.ufg.model.Retorno;
@@ -22,6 +20,10 @@ import br.inf.ufg.write.WriteInterface;
  *  com resultados.
  */
 public class ControllerWriteJson implements WriteInterface {
+
+    /**
+     * escritor de txts.
+     */
     private  PrintWriter writer;
     /**
      * @param listaRetorno
@@ -34,11 +36,11 @@ public class ControllerWriteJson implements WriteInterface {
                             final Long usoMemoria) throws IOException {
         Gson gson = new Gson();
         String json = gson.toJson(listaRetorno);
-            writer = new PrintWriter(System.getProperty("user.dir")+"/resultadoJson.json", "UTF-8");
-           
+            writer = new PrintWriter(System.getProperty("user.dir")
+                    + "/resultadoJson.json", "UTF-8");
             writer.println(json);
             writer.close();
-            writer.close();    
+            writer.close();
     }
 
 }

@@ -11,43 +11,92 @@ package br.inf.ufg.model;
  * Classe modelo para gravacao dos resultados.
  */
 public class Retorno {
+    /**
+     * expressao.
+     */
     private String expr;
+
+    /**
+     * valor do resultado.
+     */
     private Float valorResultado;
+
+    /**
+     * valor esperado.
+     */
     private Float valorEsperado;
+
+    /**
+     * codigo do erro.
+     */
     private int codigoErro;
 
+    /**
+     *
+     * @return expressao.
+     */
     public final String getExpr() {
         return expr;
     }
 
-    public final void setExpr(String expr) {
-        this.expr = expr;
+    /**
+     *
+     * @param exprParam expressao
+     */
+    public final void setExpr(final String exprParam) {
+        this.expr = exprParam;
     }
-
+    /**
+     *
+     * @return valor do resultado.
+     */
     public final Float getValorResultado() {
         return valorResultado;
     }
 
-    public final void setValorResultado(final Float valorResultado) {
-        this.valorResultado = valorResultado;
+    /**
+     *
+     * @param valorResultadoParam valor do resultado.
+     */
+    public final void setValorResultado(final Float valorResultadoParam) {
+        this.valorResultado = valorResultadoParam;
     }
 
+    /**
+     *
+     * @return valor esperado
+     */
     public final Float getValorEsperado() {
         return valorEsperado;
     }
 
-    public final void setValorEsperado(final Float valorEsperado) {
-        this.valorEsperado = valorEsperado;
+    /**
+     *
+     * @param valorEsperadoParam valor esperado.
+     */
+    public final void setValorEsperado(final Float valorEsperadoParam) {
+        this.valorEsperado = valorEsperadoParam;
     }
 
+    /**
+     *
+     * @return codigo de erro.
+     */
     public final int getCodigoErro() {
         return codigoErro;
     }
 
-    public final void setCodigoErro(final int codigoErro) {
-        this.codigoErro = codigoErro;
+    /**
+     *
+     * @param codigoErroParam codigo de erro.
+     */
+    public final void setCodigoErro(final int codigoErroParam) {
+        this.codigoErro = codigoErroParam;
     }
-    public Retorno(){ 
+    /**
+     * Construtor vazio da classe.
+     */
+    public Retorno() {
     }
-   
+
 }

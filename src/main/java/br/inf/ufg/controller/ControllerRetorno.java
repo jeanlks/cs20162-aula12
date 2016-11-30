@@ -15,28 +15,40 @@ import br.inf.ufg.model.Retorno;
  *
  */
 public class ControllerRetorno {
+    /**
+     * lista de retorno de solucoes.
+     */
     private List<Retorno> listaRetorno = new ArrayList<>();
-    private Long tempoDecorrido,usoMemoria;
-    
-    
-    public Long getUsoMemoria() {
+    /**
+     * variaveis de tempo decorrido e uso de memoria.
+     */
+    private Long tempoDecorrido, usoMemoria;
+    /**
+     * retorna uso de memoria.
+     * @return o uso de memoria.
+     */
+    public final Long getUsoMemoria() {
         return usoMemoria;
     }
-    public void setUsoMemoria(Long usoMemoria) {
-        this.usoMemoria = usoMemoria;
+    /**
+     * seta uso de memoria.
+     * @param usoMemoriaParam uso de memoria.
+     */
+    public final void setUsoMemoria(final Long usoMemoriaParam) {
+        this.usoMemoria = usoMemoriaParam;
     }
     /**
-     * 
+     *
      * @return tempo decorrido
      */
-    public Long getTempoDecorrido() {
+    public final Long getTempoDecorrido() {
         return tempoDecorrido;
     }
     /**
-     * 
-     * @param tempoDecorridoParam
+     *
+     * @param tempoDecorridoParam tempo decorrido
      */
-    public void setTempoDecorrido(final Long tempoDecorridoParam) {
+    public final void setTempoDecorrido(final Long tempoDecorridoParam) {
         this.tempoDecorrido = tempoDecorridoParam;
     }
     /**

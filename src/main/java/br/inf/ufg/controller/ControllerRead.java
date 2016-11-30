@@ -14,11 +14,19 @@ import br.inf.ufg.read.ReadFileInterface;
 /**
  *
  * @author Jean
- * Classe controller leitura dos arquivos sejam locais ou
- * pela internet.
+ * Classe que faz a decisao de leitura de arquivos
+ * via local ou via net.
  */
 public class ControllerRead {
+
+    /**
+     * leitor de arquivo.
+     */
     private ReadFileInterface readFile;
+
+    /**
+     * Lista de resultados de texto.
+     */
     private List<String[]> resultado = new ArrayList<String[]>();
     /**
      *
