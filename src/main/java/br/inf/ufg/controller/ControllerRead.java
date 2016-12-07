@@ -27,7 +27,7 @@ public class ControllerRead {
     /**
      * Lista de resultados de texto.
      */
-    private List<String[]> resultado = new ArrayList<String[]>();
+    private List<String[]> resultado = new ArrayList<>();
     /**
      *
      * @param path local do arquivo.
